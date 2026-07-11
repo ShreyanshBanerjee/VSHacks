@@ -6,22 +6,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WC party automator</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
 <main>
   <div class="main_menu">
-    <h2>World Cup Party Organizer</h2>
-    <label for="team">Team:</label>
-    <input type="text" id="team" name="team">
+    <h2 class="title">World Cup Party Organizer</h2>
+    <div class="row">
+      <label class="text" for="team">Team:</label>
+      <select name="team" id="team" class="team">
+    </select>
+    </div>
     <p></p>
-    <label for="budget">Budget:</label>
-    <input type="number" id="budget" name="budget">
+    <div class="row">
+      <label class="text" for="budget">Budget:</label>
+      <input type="number" id="budget" name="budget">
+    </div>
     <p></p>
-    <label for="date">Available Dates:</label>
-    <input type="date" id="date" name="date">
+    <div class="row">
+      <label class="text" for="date">Available Dates:</label>
+      <input type="date" id="date" name="date">
+    </div>
     <p></p>
-    <button onClick="submit()"> Submit </button>
+    <div class="row">
+      <label class="text" for="code">Party Code:</label>
+      <input type="text" id="code" name="code">
+    </div>
+    <p></p>
+    <button class="submit" onClick="submit()"> Submit </button>
   </div>
 </main>
 
