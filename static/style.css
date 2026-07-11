@@ -3,5 +3,118 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 75%;
+  height: 50vh;
+  background: #F8F6F2;
+  border: 5px solid #E5E7EB;
+  border-radius: 10px;
+  padding: 15px;
+  gap: 10px;
+}
+
+.main_menu_inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #F8F6F2;
+  gap: 10px;
+} 
+
+.team {
+  padding: 7px 34px 7px 14px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #2F3A45;
+  background: #FFF8EE;
+  border: 2px solid #D9E2EC;
+  border-radius: 14px;
+  cursor: pointer;
+  outline: none;
+
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236FA8DC'%3e%3cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-size: 18px;
+  
+  transition: all 0.25s ease;
+}
+
+.team:hover {
+  border-color: #6FA8DC;
+  background-color: #FFFDF8;
+}
+
+.team:focus {
+  border-color: #6FA8DC;
+  box-shadow: 0 0 0 4px rgba(111, 168, 220, 0.2);
+}
+
+main {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 15px;
+}
+.title {
+  font-family: "Manrope", sans-serif;
+  font-weight: 700;
+}
+
+.text {
+  font-family: "Inter", sans-serif;
+}
+
+.submit {
+  background: #90D5FF;
+  border: 2px solid #E5DCCB;
+  border-radius: 5px;
+  width: 150px;
+  height: 50px;
+  font-size: 15px;
+  transition: transform 0.5s ease;
+}
+
+button:disabled {
+    background-color: #BFCFDB;
+    color: #7A8792;
+    cursor: not-allowed;
+}
+
+.dollar_sign {
+  color: green;
+  font-weight: 600;
+}
+
+.underline_input {
+  border: none;
+  border-bottom: 2px solid #F5DCCB;
+  font-size: 15px;
+  outline: none;
+  padding: none;
+  background: transparent;
+  font-size: 16px;
+  text-align: center;
+}
+
+.underline_input:focus {
+  border-bottom-color: #90D5FF;
+}
+
+.small_width {
+  width: 6ch;
+}
+
+.medium_width {
+  width: 8.5ch;
+}
+
+.long_width {
+  width: 11ch;
+}
+
+.submit:hover {
+  transform: scale(1.1);
 }
