@@ -8,9 +8,22 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <main>
-        <h1>Basic</h1>
-    </main>
+
+<main>
+  <div class="main_menu">
+    <h2>World Cup Party Organizer</h2>
+    <label for="team">Team:</label>
+    <input type="text" id="team" name="team">
+    <p></p>
+    <label for="budget">Budget:</label>
+    <input type="number" id="budget" name="budget">
+    <p></p>
+    <label for="date">Available Dates:</label>
+    <input type="date" id="date" name="date">
+    <p></p>
+    <button onClick="submit()"> Submit </button>
+  </div>
+</main>
 
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
