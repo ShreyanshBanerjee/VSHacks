@@ -14,29 +14,32 @@
 
 <main>
   <div class="main_menu">
-    <h2 class="title">World Cup Party Organizer</h2>
+    <h2 class="title">Create A Party</h2>
     <div class="row">
-      <label class="text" for="team">Team:</label>
+      <label class="text" for="name">Party Name:</label>
+      <input type="text" id="name" name="name" class="underline_input long_width">
+    </div>
+    <div class="row">
+      <label class="text" for="team">Favorite Team:</label>
       <select name="team" id="team" class="team">
     </select>
     </div>
-    <p></p>
+    <div class="row">
+      <label class="text" for="guests">Number of Guests:</label>
+      <input type="number" id="guests" name="guests" class="underline_input small_width">
+    </div>                                           
     <div class="row">
       <label class="text" for="budget">Budget:</label>
-      <input type="number" id="budget" name="budget">
+      <label class="text dollar_sign" for="budget">$</label>
+      <input type="number" class="underline_input small_width" id="budget" name="budget">
     </div>
-    <p></p>
     <div class="row">
       <label class="text" for="date">Available Dates:</label>
       <input type="date" id="date" name="date">
     </div>
-    <p></p>
-    <div class="row">
-      <label class="text" for="code">Party Code:</label>
-      <input type="text" id="code" name="code">
-    </div>
-    <p></p>
-    <button class="submit" onClick="submit()"> Submit </button>
+    <div></div> 
+    <div></div>
+    <button id="submit" class="submit" onClick="submit()">Create</button>
   </div>
 </main>
 
