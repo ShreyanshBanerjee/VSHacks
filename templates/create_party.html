@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WC party automator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main>
+        <div class="main_menu">
+            <h2>World Cup Party Organizer</h2>
+            <form method="POST" action="{{ url_for('create_party') }}">
+                <label for="host_name">Host name</label>
+                <input
+                    id="host_name"
+                    name="host_name"
+                    type="text"
+                    required
+                >
+
+                <label for="location">Location</label>
+                <input
+                    id="location"
+                    name="location"
+                    type="text"
+                    required
+                >
+
+                <label for="budget">Budget</label>
+                <input
+                    id="budget"
+                    name="budget"
+                    type="number"
+                    min="0"
+                    step="0.01"
+                    required
+                >
+
+                <label for="max_guests">Maximum guests</label>
+                <input
+                    id="max_guests"
+                    name="max_guests"
+                    type="number"
+                    min="1"
+                    required
+                >
+
+                <button type="submit">
+                    Create party
+                </button>
+            </form>
+        </div>
+    </main>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

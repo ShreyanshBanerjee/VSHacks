@@ -128,7 +128,7 @@ def party_dashboard(code):
         ).fetchall()
 
     if party:
-        return render_template('party.html', party=party, guests=guests)
+        return render_template('party_dashboard.html', party=party, guests=guests)
     else:
         return "Party not found", 404
 
@@ -173,6 +173,15 @@ def join_party(code):
     
 
     return render_template('join_party.html', party=party, matches=matches)
+
+@app.route("/find-party", methods=['GET', 'POST'])
+def find_party():
+    if request.method == 'POST':
+        code = request.form.get('party_code', '').strip().upper()
+        if code:
+            return redirect(url_for('join_party', code=code))
+            
+    return render_template('find_party.html')
 
 @app.route("/party/<code>/generate")
 def generate_plan(code):
