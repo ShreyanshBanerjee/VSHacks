@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -38,11 +39,12 @@
         {% if guests %}
             <ul>
                 {% for guest in guests %}
-                    <li>{{ guest["name"] }} - Favorite team: {{ guest["favorite_team"] }}</li>
+                    <li>{{ guest["guest_name"] }} - Favorite team: {{ guest["favorite_team"] }}</li>
                 {% endfor %}
             </ul>
             <a href="{{ url_for('generate_plan', code=party['code']) }}">
                 Generate plan
+            </a>
         {% else %}
             <p>No guests have joined yet.</p>
         {% endif %}
