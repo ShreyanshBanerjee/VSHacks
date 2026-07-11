@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Party Recommendation</title>
+</head>
+<body>
+    <h1>Recommended Match</h1>
+
+    <h2>
+        {{ best_match["team1"] }}
+        vs
+        {{ best_match["team2"] }}
+    </h2>
+
+    <p>
+        Date:
+        {{ best_match["date"] }}
+    </p>
+
+    <p>
+        Time:
+        {{ best_match["time"] }}
+    </p>
+
+    <p>
+        Recommendation score:
+        {{ best_match["score"] }}
+    </p>
+
+    <p>
+        Guests available:
+        {{ best_match["available_guests"] }}
+    </p>
+
+    <p>
+        Guests supporting one of these teams:
+        {{ best_match["supporters"] }}
+    </p>
+
+    <h2>All match scores</h2>
+
+    <ul>
+        {% for match in scored_matches %}
+            <li>
+                {{ match["team1"] }}
+                vs
+                {{ match["team2"] }}
+                — {{ match["score"] }} points
+            </li>
+        {% endfor %}
+    </ul>
+
+    <a href="{{ url_for('party_dashboard', code=party['code']) }}">
+        Return to dashboard
+    </a>
+</body>
+</html>

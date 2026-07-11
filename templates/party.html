@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Party Details</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body>
+        <h1>{{ party["host_name"] }}'s Party</h1>
+
+        <p>
+            <strong>Party code:</strong>
+            {{ party["code"] }}
+        </p>
+
+        <p>
+            <strong>Location:</strong>
+            {{ party["location"] }}
+        </p>
+
+        <p>
+            <strong>Budget:</strong>
+            {{ party["budget"] }}
+        </p>
+
+        <p>
+            <strong>Maximum guests:</strong>
+            {{ party["max_guests"] }}
+        </p>
+
+        <a href="{{ url_for('join_party', code=party['code']) }}">
+            Join this party
+        </a>
+
+        <h2>Guests</h2>
+
+        {% if guests %}
+            <ul>
+                {% for guest in guests %}
+                    <li>{{ guest["name"] }} - Favorite team: {{ guest["favorite_team"] }}</li>
+                {% endfor %}
+            </ul>
+            <a href="{{ url_for('generate_plan', code=party['code']) }}">
+                Generate plan
+        {% else %}
+            <p>No guests have joined yet.</p>
+        {% endif %}
+    </body>
+</html>

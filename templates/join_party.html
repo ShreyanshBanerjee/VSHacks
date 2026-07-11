@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Join Party</title>
+</head>
+<body>
+    <h1>Join {{ party["host_name"] }}'s party</h1>
+
+    <form method="POST">
+        <label>
+            Your name
+            <input type="text" name="guest_name" required>
+        </label>
+
+        <br><br>
+
+        <label>
+            Favorite team
+            <select name="favorite_team" required>
+                <option value="">Choose a team</option>
+                <option value="South Korea">South Korea</option>
+                <option value="Mexico">Mexico</option>
+                <option value="England">England</option>
+                <option value="Croatia">Croatia</option>
+            </select>
+        </label>
+
+        <h2>Which matches can you attend?</h2>
+
+        {% for match in matches %}
+            <label>
+                <input
+                    type="checkbox"
+                    name="available_matches"
+                    value="{{ match['id'] }}"
+                >
+                {{ match["team1"] }}
+                vs
+                {{ match["team2"] }}
+                —
+                {{ match["date"] }}
+                at
+                {{ match["time"] }}
+            </label>
+
+            <br>
+        {% endfor %}
+
+        <br>
+
+        <button type="submit">Join party</button>
+    </form>
+</body>
+</html>
