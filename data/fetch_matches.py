@@ -4,7 +4,7 @@ import json
 from dotenv import load_dotenv
 import os
 
-DELTA_TIME = timedelta(days=7) #fetch_matches gets all matches in the next 2 weeks
+DELTA_TIME = timedelta(days=7) #fetch_matches gets all matches in the next weeks
 API_ROOT = 'http://api.football-data.org'
 
 def run():
