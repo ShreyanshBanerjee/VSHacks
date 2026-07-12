@@ -2,6 +2,18 @@ body {
   margin: 0;
   background: #F4F7FB;
   color: #172033;
+
+  background:
+    linear-gradient(
+      rgba(255, 255, 255, 0.2),
+      rgba(255, 255, 255, 0.3)
+    ),
+    url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQulIFmOok9c_KVeKbNSeNrQHx5kW0p7VcsS6eU71JnbJzDvXrmUlGQYjw&s=10");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .menu{
