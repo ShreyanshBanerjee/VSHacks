@@ -10,8 +10,8 @@ button.addEventListener("click", function () {
         .then(data => {
             const foodText =
                 data.foods && data.foods.length > 0
-                    ? data.foods.join(", ")
-                    : "None; Budget too low";
+                    ? data.foods.map(food => `<span class="food-pill">${food}</span>`).join("")
+                    : `<span class="food-pill">Budget too low</span>`;
 
             const musicText =
                 data.music && data.music.length > 0
@@ -25,15 +25,16 @@ button.addEventListener("click", function () {
                     <h1 class="title">Generated Plan</h1>
                     <div class="large_text">Match: ${data.team1} vs ${data.team2}</div>
                     <div class="card" style="width:75%">
-                      <div class="large_text">Food</div>
+                      <div class="large_text" style="margin:0 padding:0">Stuff to eat 😋</div>
                       <div class="text">
                         <br>
-                        <strong>Recommended Snacks:</strong> ${foodText} <br>
-                        <strong>Cost per person:</strong> $${data.cost_per_person.toFixed(2)} <br>
-                        <strong>Remaining budget:</strong> $${data.remaining_budget.toFixed(2)}
+                        Recommended Snacks:
+                        <div class="food-pills">${foodText}</div>
+                        Cost per person: <strong>$${data.cost_per_person.toFixed(2)}</strong> <br>
+                        Remaining budget:<strong> $${data.remaining_budget.toFixed(2)}</strong>
                       </div>
                     </div>
-                    <h2 class="title">Recommended Music:</h2>
+                    <h2 class="title" style="margin-bottom: 0; padding-left: 20px;">🎵 Recommended Music:</h2>
                     <div class="card" style="width:75%">
                       <ol class="music-list">
                         ${musicText}
