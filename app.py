@@ -66,15 +66,18 @@ def recommend_foods(team1, team2, budget, num_guests):
             counter += 1
         else:
             break
-
+    
     all_recommended_foods = team1_recommended_foods + team2_recommended_foods
-
     food_counts = Counter(all_recommended_foods)
 
-    return [
+    recommendations = [
         f"{count}x {food_name}" if count > 1 else food_name
         for food_name, count in food_counts.items()
     ]
+
+    total_used_budget = team1_used_budget + team2_used_budget
+
+    return recommendations, total_used_budget
 
 def connect_to_database():
     connect = sqlite3.connect('database.db')
@@ -269,10 +272,30 @@ def find_party():
 
 @app.route("/generate/<code>/<team1>-<team2>")
 def generate_plan(code, team1, team2):
-    recommedation = recommend_foods(team1, team2, 100, 10)
-    plan_message = f"Successfully generated a watch plan for party code {code}! {team1} vs {team2} will be the main match to watch. Food: {recommedation}"
-    return jsonify({"plan": plan_message})
-    
+    with connect_to_database() as connect:
+        party = connect.execute(
+            "SELECT * FROM parties WHERE code = ?",
+            (code,)
+        ).fetchone()
+
+        if not party:
+            return jsonify({"error": "Party not found"}), 404
+
+    recommendations, total_used_budget = recommend_foods(
+        team1,
+        team2,
+        party["budget"],
+        party["max_guests"]
+    )
+
+    return jsonify({
+        "team1": team1,
+        "team2": team2,
+        "foods": recommendations,
+        "cost_per_person": total_used_budget,
+        "budget_per_person": party["budget"],
+        "remaining_budget": party["budget"] - total_used_budget * party["max_guests"]
+    })
 
 if __name__ == '__main__':
     app.run(debug=True)
