@@ -18,8 +18,8 @@
           </button>
           <p></p>
           <p class="large_text">Already have a party code?</p>   
-          <form action="{{ url_for('find_party') }}" method="POST" class="main_menu_inner">
-            <input type="text" id="party-code" name="party_code" class="underline_input text " placeholder="Enter Here..." required>
+          <form action="{{ url_for('find_party') }}" method="POST" class="expanded">
+            <input type="text" id="party-code" name="party_code" style="width: 100%" class="underline_input text" placeholder="Enter Here..." required>
             <button type="submit" class="submit text">Join Party</button>
           </form>
         </div>
