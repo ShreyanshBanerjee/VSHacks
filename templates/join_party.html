@@ -9,13 +9,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<main>
 <body>
-    <div class = "join_menu">
+  <main>
+    <div class = "menu">
       <h1 class="title">Join {{ party["host_name"] }}'s party</h1>
       <form method="POST" class="main_menu_inner">
         <div class="row">
-          <label class="text" for="name">Your Name:</label>
+          <label class="text" for="name">Your name:</label>
           <input type="text" id="name" name="guest_name" class="underline_input long_width" required>
         </div>
         <label class="text">
@@ -29,31 +29,32 @@
         </label>
 
         <h2 class="title">Which matches can you attend?</h2>
+        <div class="match_list">
+          {% for match in matches %}
+            <label class="match_option">
+              <input
+                type="checkbox"
+                name="available_matches"
+                value="{{ match['id'] }}"
+                {% if loop.first %}required{% endif %}
+              >
 
-        <div style="gap: 4px">
-        {% for match in matches %}
-            <label class="text">
-                <input
-                    type="checkbox"
-                    name="available_matches"
-                    value="{{ match['id'] }}"
-                >
-                {{ match["team1"] }}
-                vs
-                {{ match["team2"] }}
-                —
-                {{ match["date"] }}
-                at
-                {{ match["time"] }}
+              <span class="match_details">
+                <span class="match_teams">
+                  {{ match["team1"] }} vs {{ match["team2"] }}
+                </span>
+                <span class="match_time">
+                  {{ match["date"] }} @ {{ match["time"] }}
+                </span>
+              </span>
             </label>
-            <br>
-        {% endfor %}
+          {% endfor %}
         </div>
         <br>
 
         <button type="submit" class="submit">Join party</button>
       </form>
     </div>
+  </main>
 </body>
-</main>
 </html>

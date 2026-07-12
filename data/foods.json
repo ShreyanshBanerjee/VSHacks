@@ -1,0 +1,110 @@
+{
+  "Argentina": [
+    {
+      "name": "Empanadas",
+      "cost_per_person": 2.5
+    },
+    {
+      "name": "Choripán",
+      "cost_per_person": 3.5
+    },
+    {
+      "name": "Milanesa sandwiches",
+      "cost_per_person": 4.0
+    },
+    {
+      "name": "Alfajores",
+      "cost_per_person": 1.5
+    }
+  ],
+  "Switzerland": [
+    {
+      "name": "Cheese fondue bites",
+      "cost_per_person": 4.0
+    },
+    {
+      "name": "Rösti",
+      "cost_per_person": 2.5
+    },
+    {
+      "name": "Swiss cheese platter",
+      "cost_per_person": 3.5
+    },
+    {
+      "name": "Swiss chocolate",
+      "cost_per_person": 2.0
+    }
+  ],
+  "France": [
+    {
+      "name": "Mini croissants",
+      "cost_per_person": 2.0
+    },
+    {
+      "name": "Quiche slices",
+      "cost_per_person": 3.0
+    },
+    {
+      "name": "Cheese and baguette",
+      "cost_per_person": 3.0
+    },
+    {
+      "name": "Madeleines",
+      "cost_per_person": 1.5
+    }
+  ],
+  "Spain": [
+    {
+      "name": "Tortilla española",
+      "cost_per_person": 2.5
+    },
+    {
+      "name": "Patatas bravas",
+      "cost_per_person": 2.0
+    },
+    {
+      "name": "Croquetas",
+      "cost_per_person": 2.5
+    },
+    {
+      "name": "Churros",
+      "cost_per_person": 1.5
+    }
+  ],
+  "England": [
+    {
+      "name": "Mini meat pies",
+      "cost_per_person": 3.0
+    },
+    {
+      "name": "Sausage rolls",
+      "cost_per_person": 2.5
+    },
+    {
+      "name": "Fish finger sandwiches",
+      "cost_per_person": 3.0
+    },
+    {
+      "name": "Scones",
+      "cost_per_person": 1.5
+    }
+  ],
+  "General": [
+    {
+      "name": "Pizza slices",
+      "cost_per_person": 3.0
+    },
+    {
+      "name": "Nachos and salsa",
+      "cost_per_person": 2.0
+    },
+    {
+      "name": "Mini sandwiches",
+      "cost_per_person": 2.5
+    },
+    {
+      "name": "Popcorn",
+      "cost_per_person": 1.0
+    }
+  ]
+}
