@@ -18,11 +18,11 @@
     <form method="POST" action="{{ url_for('create_party') }}" class="main_menu_inner">
       <div class="row">
         <label class="text" for="name">Your name:</label>
-        <input type="text" id="name" name="host_name" class="underline_input long_width" required>
+        <input autocomplete="off" type="text" id="name" name="host_name" class="underline_input long_width" required>
       </div>
       <div class="row">
         <label class="text" for="location">Location:</label>
-        <input type="text" id="location" name="location" class="underline_input" required>
+        <input autocomplete="off" type="text" id="location" name="location" class="underline_input" required>
       </div>
       <div class="row">
         <label class="text" for="budget">Budget:</label>

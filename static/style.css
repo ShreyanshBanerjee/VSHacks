@@ -74,7 +74,7 @@ main {
 .submit {
   background: #90D5FF;
   border: 2px solid #E5DCCB;
-  border-radius: 5px;
+  border-radius: 15px;
   width: 100%;
   height: 50px;
   font-size: 15px;
@@ -84,7 +84,7 @@ main {
 .create {
   background: #98FB98;
   border: 2px solid #E5DCCB;
-  border-radius: 5px;
+  border-radius: 15px;
   width: 100%;
   height: 50px;
   font-size: 15px;
@@ -127,11 +127,12 @@ button:disabled {
   border-bottom-color: #90D5FF;
 }
 
-.row {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 20px;
+.row-dashboard {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  min-height: calc(100vh - 40px);
 }
 
 .card {
@@ -188,4 +189,48 @@ button:disabled {
   font-size: 20px;
   font-weight: 600; 
   font-family: "Inter", sans-serif;
+}
+
+.music-list {
+  width: 100%;
+  max-height: 320px;
+  overflow-y: auto;
+  box-sizing: border-box;
+  padding: 16px 20px;
+  background: #faf3e5;
+  border-radius: 14px;
+  line-height: 1.6;
+  text-align: left;
+}
+
+/* Scoped spacing for the Recommended Match card */
+.match-card-spaced {
+    gap: 5px; /* Adds space between the title, details, and button */
+    padding: 25px; /* Gives the card slightly more breathing room inside */
+}
+
+.match-text-spaced {
+    line-height: 1.8; /* Spaces out the text lines for better readability */
+    width: 100%;
+}
+
+.match-text-spaced ul {
+    margin-top: 5px !important;
+    margin-bottom: 10px !important;
+}
+
+.food-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 10px 0;
+}
+
+.food-pill {
+  background: #FFF1C7;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  border: 1px solid #E5DCCB;
 }

@@ -10,37 +10,39 @@
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">         
     </head>
     <main> 
-      <div class="row">
-      <div class="menu" style="height:100vh">
+      <div class="row-dashboard">
+      <div class="menu">
         <div class="main_menu_inner">
-        <h1 class="title">{{ party["host_name"] }}'s Party</h1>
+        <h1 class="title">⚽ {{ party["host_name"] }}'s Watch Party</h1>
         <div class="card">
         <div class="text large_text">Party Details</div>
         <br>
         <div class="text">
-            <strong>Party code:</strong>
-            {{ party["code"] }}
+            Party code:
+            <strong>{{ party["code"] }}</strong>
             <br>
-            <strong>Location:</strong>
-            {{ party["location"] }}
+            📍
+            <strong>{{ party["location"] }}</strong>
             <br>
-            <strong>Budget:</strong>
-            ${{ party["budget"] }}
+            💰
+            <strong>${{ party["budget"] }}</strong>
+            Budget
             <br>
-            <strong>Number of guests:</strong>
-            {{ guests|length }} / {{ party["max_guests"] }}
+            👥
+            <strong>{{ guests|length }} / {{ party["max_guests"] }}</strong>
+            Guests
             {% if guests %}
             <ul class="text" style="margin: 0; padding-left: 20px;">
                 {% for guest in guests %}
-                    <li>{{ guest["guest_name"] }} - Favorite team: {{ guest["favorite_team"] }}</li>
+                    <li><strong>{{ guest["guest_name"] }}</strong> | Favorite team: {{ guest["favorite_team"] }}</li>
                 {% endfor %}
             </ul> 
         </div>
         <br>
-        <button class="create" onclick="toClipboard('{{ url_for('join_party', code=party['code']) }}')"> Copy Party Join Link</button>
+        <button class="create" onclick="toClipboard(`{{ url_for('join_party', code=party['code']) }}`)"> 🔗 Copy Party Join Link</button>
         </div>
         <br>
-        <h2 class="title" style="margin: 0; padding-left: 20px;">Recommended Match:</h2>
+        <h2 class="title" style="margin: 0; padding-left: 20px;">✨ Recommended Match:</h2>
         <div class="card">
             <h2 class="large_text">
                 {{ best_match["team1"] }}
@@ -48,22 +50,22 @@
                 {{ best_match["team2"] }}
             </h2>
             <div class="text">
-                <strong>Date:</strong> {{ best_match["date"] }}
+                📅 Date: <strong>{{ best_match["date"] }}</strong>
                 <br>
-                <strong>Time:</strong> {{ best_match["time"] }}
+                🕒 Time: <strong>{{ best_match["time"] }}</strong>
                 <br>    
-                <strong> {{ best_match["available_guests"] | length }}/{{ guests | length}} Guests Available</strong>
+                <strong> {{ best_match["available_guests"] | length }} / {{ guests | length}}</strong>  Guests Available
                 <ul class="text" style="margin: 0; padding-left: 20px;">
                     {% for guest in best_match["available_guests"] %}
-                        <li>{{ guest }}</li>
+                        <li><strong>{{ guest }}</strong></li>
                     {% endfor %}
                 </ul>
               <br>
               {% if best_match["supporters"] %}
-              <strong>Guests supporting one of these teams:</strong>
-                <ul>
+              Guests supporting one of these teams:
+                <ul class="text" style="margin: 0; padding-left: 20px;">
                     {% for guest in best_match["supporters"] %}
-                        <li>{{ guest }}</li>
+                        <li><strong>{{ guest }}</strong></li>
                     {% endfor %}
                 </ul>
               {% else %}
@@ -75,7 +77,7 @@
                     data-code="{{ party['code'] }}" 
                     data-team1="{{ best_match['team1'] }}" 
                     data-team2="{{ best_match['team2'] }}">
-                Generate Plan
+            Generate Plan
             </button>
         {% else %}
             <p>No guests have joined yet.</p>
@@ -84,7 +86,7 @@
       </div>
      </div> 
  
- <div id="generated-plan-container" class="menu" style="display:none; height:100vh"></div>  
+ <div id="generated-plan-container" class="menu" style="display:none;"></div>  
       </div>
       <script src="{{ url_for('static', filename='script.js') }}"></script>
  
