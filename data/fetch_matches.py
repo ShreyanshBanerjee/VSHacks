@@ -1,4 +1,5 @@
 from datetime import date, timedelta
+from urllib import response
 import requests
 import json
 from dotenv import load_dotenv
@@ -17,7 +18,6 @@ def run():
     header = {'X-Auth-Token': os.getenv("MATCHES_API_KEY")}
     
     response = requests.get(url, headers=header)
-
     matches = []
 
     for v in response.json()['matches']:
