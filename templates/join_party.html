@@ -4,33 +4,35 @@
 <head>
     <meta charset="UTF-8">
     <title>Join Party</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
+<main>
 <body>
-    <h1>Join {{ party["host_name"] }}'s party</h1>
-
-    <form method="POST">
-        <label>
-            Your name
-            <input type="text" name="guest_name" required>
-        </label>
-
-        <br><br>
-
-        <label>
-            Favorite team
+    <div class = "join_menu">
+      <h1 class="title">Join {{ party["host_name"] }}'s party</h1>
+      <form method="POST" class="main_menu_inner">
+        <div class="row">
+          <label class="text" for="name">Your Name:</label>
+          <input type="text" id="name" name="guest_name" class="underline_input long_width" required>
+        </div>
+        <label class="text">
+            Favorite team: 
             <select name="favorite_team" required>
-                <option value="">Choose a team</option>
-                <option value="South Korea">South Korea</option>
-                <option value="Mexico">Mexico</option>
-                <option value="England">England</option>
-                <option value="Croatia">Croatia</option>
+            <option value="">Choose a team</option>
+              {% for team in teams %}
+                <option value="{{team}}">{{team}}</option>
+              {% endfor %}
             </select>
         </label>
 
-        <h2>Which matches can you attend?</h2>
+        <h2 class="title">Which matches can you attend?</h2>
 
+        <div style="gap: 4px">
         {% for match in matches %}
-            <label>
+            <label class="text">
                 <input
                     type="checkbox"
                     name="available_matches"
@@ -44,13 +46,14 @@
                 at
                 {{ match["time"] }}
             </label>
-
             <br>
         {% endfor %}
-
+        </div>
         <br>
 
-        <button type="submit">Join party</button>
-    </form>
+        <button type="submit" class="submit">Join party</button>
+      </form>
+    </div>
 </body>
+</main>
 </html>
