@@ -1,3 +1,5 @@
+import random
+
 from flask import Flask, jsonify, render_template, request, redirect, url_for
 import secrets
 import sqlite3
@@ -11,6 +13,7 @@ BASE_DIR = Path(__file__).resolve().parent
 MATCHES_FILE = BASE_DIR / "data" / "matches.json"
 TEAMS_FILE = BASE_DIR / "data" / "teams.txt"
 FOODS_FILE = BASE_DIR / "data" / "foods.json"
+MUSIC_FILE = BASE_DIR / "data" / "music.json"
 
 app = Flask(__name__)
 
@@ -20,6 +23,10 @@ def load_teams():
     
 def load_foods():
     with open(FOODS_FILE, 'r') as f:
+        return json.load(f)
+
+def load_music():
+    with open(MUSIC_FILE, 'r') as f:
         return json.load(f)
 
 fetch_matches.run()
@@ -78,6 +85,55 @@ def recommend_foods(team1, team2, budget, num_guests):
     total_used_budget = team1_used_budget + team2_used_budget
 
     return recommendations, total_used_budget
+
+def recommend_music(team1, team2):
+    music_dict = load_music()
+
+    country_emojis = {
+        "Argentina": "🇦🇷",
+        "Switzerland": "🇨🇭",
+        "France": "🇫🇷",
+        "Spain": "🇪🇸",
+        "England": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+        "World Cup": "🌍",
+        "General": "🎵"
+    }
+
+    world_cup_recommended_music = []
+    team1_recommended_music = []
+    team2_recommended_music = []
+
+    team1_key = team1 if team1 in music_dict else "General"
+    team2_key = team2 if team2 in music_dict else "General"
+
+    world_cup_music = music_dict.get("World Cup", [])
+    team1_music = music_dict.get(team1_key, [])
+    team2_music = music_dict.get(team2_key, [])
+
+    for song in world_cup_music[:5]:
+        world_cup_recommended_music.append(
+            f'{song["title"]} - {song["artist"]} {country_emojis["World Cup"]}'
+        )
+
+    for song in team1_music[:5]:
+        team1_recommended_music.append(
+            f'{song["title"]} - {song["artist"]} {country_emojis[team1_key]}'
+        )
+
+    for song in team2_music[:5]:
+        team2_recommended_music.append(
+            f'{song["title"]} - {song["artist"]} {country_emojis[team2_key]}'
+        )
+
+    all_recommended_music = (
+        world_cup_recommended_music
+        + team1_recommended_music
+        + team2_recommended_music
+    )
+
+    random.shuffle(all_recommended_music)
+
+    return all_recommended_music
 
 def connect_to_database():
     connect = sqlite3.connect('database.db')
@@ -281,17 +337,20 @@ def generate_plan(code, team1, team2):
         if not party:
             return jsonify({"error": "Party not found"}), 404
 
-    recommendations, total_used_budget = recommend_foods(
+    food_recommendations, total_used_budget = recommend_foods(
         team1,
         team2,
         party["budget"],
         party["max_guests"]
     )
 
+    music_recommendations = recommend_music(team1, team2)
+
     return jsonify({
         "team1": team1,
         "team2": team2,
-        "foods": recommendations,
+        "foods": food_recommendations,
+        "music": music_recommendations,
         "cost_per_person": total_used_budget,
         "budget_per_person": party["budget"],
         "remaining_budget": party["budget"] - total_used_budget * party["max_guests"]

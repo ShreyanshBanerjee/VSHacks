@@ -1,0 +1,156 @@
+{
+  "World Cup": [
+    {
+      "title": "Waka Waka (This Time for Africa)",
+      "artist": "Shakira"
+    },
+    {
+      "title": "Wavin' Flag",
+      "artist": "K'naan"
+    },
+    {
+      "title": "The Cup of Life",
+      "artist": "Ricky Martin"
+    },
+    {
+      "title": "We Are One (Ole Ola)",
+      "artist": "Pitbull, Jennifer Lopez and Claudia Leitte"
+    },
+    {
+      "title": "Hayya Hayya (Better Together)",
+      "artist": "Trinidad Cardona, Davido and AISHA"
+    }
+  ],
+  "Argentina": [
+    {
+      "title": "Muchachos, Ahora Nos Volvimos a Ilusionar",
+      "artist": "La Mosca Tse-Tse"
+    },
+    {
+      "title": "BZRP Music Sessions #52",
+      "artist": "Bizarrap and Quevedo"
+    },
+    {
+      "title": "Miénteme",
+      "artist": "TINI and María Becerra"
+    },
+    {
+      "title": "Entre Nosotros",
+      "artist": "Tiago PZK and LIT killah"
+    },
+    {
+      "title": "Además de Mí",
+      "artist": "Rusherking, KHEA, Duki, María Becerra, LIT killah and Tiago PZK"
+    }
+  ],
+  "Switzerland": [
+    {
+      "title": "The Code",
+      "artist": "Nemo"
+    },
+    {
+      "title": "She Got Me",
+      "artist": "Luca Hänni"
+    },
+    {
+      "title": "Someone Like You",
+      "artist": "Pegasus"
+    },
+    {
+      "title": "Heaven",
+      "artist": "Gotthard"
+    },
+    {
+      "title": "Stones",
+      "artist": "Zibbz"
+    }
+  ],
+  "France": [
+    {
+      "title": "Dernière danse",
+      "artist": "Indila"
+    },
+    {
+      "title": "Alors on danse",
+      "artist": "Stromae"
+    },
+    {
+      "title": "Djadja",
+      "artist": "Aya Nakamura"
+    },
+    {
+      "title": "Tout oublier",
+      "artist": "Angèle and Roméo Elvis"
+    },
+    {
+      "title": "La même",
+      "artist": "Maître Gims and Vianney"
+    }
+  ],
+  "Spain": [
+    {
+      "title": "Despechá",
+      "artist": "ROSALÍA"
+    },
+    {
+      "title": "Quevedo: BZRP Music Sessions #52",
+      "artist": "Bizarrap and Quevedo"
+    },
+    {
+      "title": "Tú Me Dejaste de Querer",
+      "artist": "C. Tangana, Niño de Elche and La Húngara"
+    },
+    {
+      "title": "Ateo",
+      "artist": "C. Tangana and Nathy Peluso"
+    },
+    {
+      "title": "Colocao",
+      "artist": "Nicki Nicole"
+    }
+  ],
+  "England": [
+    {
+      "title": "As It Was",
+      "artist": "Harry Styles"
+    },
+    {
+      "title": "Shape of You",
+      "artist": "Ed Sheeran"
+    },
+    {
+      "title": "Don't Start Now",
+      "artist": "Dua Lipa"
+    },
+    {
+      "title": "Someone You Loved",
+      "artist": "Lewis Capaldi"
+    },
+    {
+      "title": "Cold Heart",
+      "artist": "Elton John and Dua Lipa"
+    }
+  ],
+  "General": [
+    {
+      "title": "Blinding Lights",
+      "artist": "The Weeknd"
+    },
+    {
+      "title": "Uptown Funk",
+      "artist": "Mark Ronson featuring Bruno Mars"
+    },
+    {
+      "title": "Can't Stop the Feeling!",
+      "artist": "Justin Timberlake"
+    },
+    {
+      "title": "Levitating",
+      "artist": "Dua Lipa"
+    },
+    {
+      "title": "I Gotta Feeling",
+      "artist": "The Black Eyed Peas"
+    }
+  ]
+}
