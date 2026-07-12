@@ -6,19 +6,24 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>World Cup Party Automator</title>
         <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     </head>
-    <body>
-        <h1>World Cup Party Automator</h1>
-        <a href="{{ url_for('create_party') }}">
+    <main>
+      <div class="menu">
+        <h1 class="title">World Cup Party Automator</h1>
+        <div class="main_menu_inner">
+          <button onclick="window.location.href='{{ url_for('create_party') }}'" class="create text">
             Create a new party!
-        </a>
-
-        <h2>Already have a party code?</h2>
-        <form action="{{ url_for('find_party') }}" method="POST">
-            <label for="party-code">Enter Party Code:</label>
-            <input type="text" id="party-code" name="party_code" required>
-            <button type="submit">Join Party</button>
-        </form>
+          </button>
+          <p></p>
+          <p class="large_text">Already have a party code?</p>   
+          <form action="{{ url_for('find_party') }}" method="POST" class="main_menu_inner">
+            <input type="text" id="party-code" name="party_code" class="underline_input text " placeholder="Enter Here..." required>
+            <button type="submit" class="submit text">Join Party</button>
+          </form>
+        </div>
+    </div>
     <script src="{{ url_for('static', filename='script.js') }}"></script>
-</body>
+</main>
 </html>
