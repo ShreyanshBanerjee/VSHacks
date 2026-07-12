@@ -91,6 +91,16 @@ main {
   transition: transform 0.5s ease;
 }
 
+.playlist {
+  background: #FDDB6D;
+  border: 2px solid #E5DCCB;
+  border-radius: 5px;
+  width: 100%;
+  height: 50px;
+  font-size: 15px;
+  transition: transform 0.5s ease;
+}
+
 button:disabled {
     background-color: #BFCFDB;
     color: #7A8792;
@@ -157,6 +167,10 @@ button:disabled {
 .create:hover {
   transform: scale(1.1);
 }
+
+.playlist:hover {
+  transform: scale(1.1);
+} 
 
 .match_list {
   display: flex;

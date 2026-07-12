@@ -11,7 +11,7 @@ button.addEventListener("click", function () {
             const foodText =
                 data.foods && data.foods.length > 0
                     ? data.foods.join(", ")
-                    : "Budget too low";
+                    : "None; Budget too low";
 
             const musicText =
                 data.music && data.music.length > 0
@@ -21,28 +21,24 @@ button.addEventListener("click", function () {
                     : "<li>No music recommendations available</li>";
 
             document.getElementById("generated-plan-container").innerHTML = `
-                <div class="plan-card">
-                    <h2>${data.team1} vs ${data.team2}</h2>
-
-                    <p>
-                        <strong>Food per person:</strong>
-                        ${foodText}
-                    </p>
-
-                    <p>
-                        <strong>Cost per person:</strong>
-                        $${data.cost_per_person.toFixed(2)}
-                    </p>
-
-                    <p>
-                        <strong>Remaining budget:</strong>
-                        $${data.remaining_budget.toFixed(2)}
-                    </p>
-
-                    <h3>Recommended Music</h3>
-                    <ol class="music-list">
+                <div class="plan-card main_menu_inner">
+                    <h1 class="title">Generated Plan</h1>
+                    <div class="large_text">Match: ${data.team1} vs ${data.team2}</div>
+                    <div class="card" style="width:75%">
+                      <div class="large_text">Food</div>
+                      <div class="text">
+                        <br>
+                        <strong>Recommended Snacks:</strong> ${foodText} <br>
+                        <strong>Cost per person:</strong> $${data.cost_per_person.toFixed(2)} <br>
+                        <strong>Remaining budget:</strong> $${data.remaining_budget.toFixed(2)}
+                      </div>
+                    </div>
+                    <h2 class="title">Recommended Music:</h2>
+                    <div class="card" style="width:75%">
+                      <ol class="music-list">
                         ${musicText}
-                    </ol>
+                      </ol>
+                    </div>
                 </div>
             `;
             document.getElementById("generated-plan-container").style.display = "flex"; 
