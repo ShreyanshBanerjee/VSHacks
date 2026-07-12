@@ -13,6 +13,18 @@ document.getElementById('generate-plan').addEventListener('click', function() {
                     <p>${data.plan}</p>
                 </div>
             `;
+            container.style.display = "flex"; 
         })
         .catch(error => console.error('Error:', error));
+
 });
+
+function toClipboard(link) {
+    navigator.clipboard.writeText(window.location.origin + link)
+        .then(() => {
+            alert("Link copied!");
+        })
+        .catch(() => {
+            alert("Failed to copy link");
+        });
+}
