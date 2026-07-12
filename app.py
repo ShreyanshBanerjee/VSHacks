@@ -4,11 +4,19 @@ import sqlite3
 import json
 from pathlib import Path
 
+from data import fetch_matches
+
 BASE_DIR = Path(__file__).resolve().parent
 MATCHES_FILE = BASE_DIR / "data" / "matches.json"
+TEAMS_FILE = BASE_DIR / "data" / "teams.txt"
 
 app = Flask(__name__)
 
+def load_teams():
+    with open(TEAMS_FILE, 'r') as f:
+        return f.read().splitlines()
+
+fetch_matches.run()
 def load_matches():
     with open(MATCHES_FILE, 'r') as f:
         return json.load(f)
@@ -136,6 +144,7 @@ def party_dashboard(code):
 def join_party(code):
     code = code.upper()
     matches = load_matches()
+    teams = load_teams()
 
     with connect_to_database() as connect:
         party = connect.execute(
@@ -172,7 +181,7 @@ def join_party(code):
         return redirect(url_for('party_dashboard', code=code))
     
 
-    return render_template('join_party.html', party=party, matches=matches)
+    return render_template('join_party.html', party=party, teams=teams, matches=matches)
 
 @app.route("/find-party", methods=['GET', 'POST'])
 def find_party():

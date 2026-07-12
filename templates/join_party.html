@@ -20,7 +20,7 @@
         </div>
         <label class="text">
             Favorite team: 
-            <select name="favorite_team" required>
+            <select name="favorite_team" class="team" required>
             <option value="">Choose a team</option>
               {% for team in teams %}
                 <option value="{{team}}">{{team}}</option>
